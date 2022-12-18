@@ -151,7 +151,7 @@ publish/
 #!**/packages/repositories.config
 
 # allow commiting local feed
-!**/packages/*.nupkg
+!**/LocalPackages/*.nupkg
 
 # Microsoft Azure Build Output
 csx/
