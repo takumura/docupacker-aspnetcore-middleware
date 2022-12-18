@@ -1,5 +1,6 @@
 ﻿
 using DocuPacker.JsonIndexPack;
+using DocuPacker.JsonIndexPack.Utils;
 using DocuPacker.Middleware.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -19,6 +20,7 @@ public static class DocuPackerServiceCollectionExtensions
     public static IServiceCollection AddDocuPacker(this IServiceCollection services, Action<DocumentsWatchServiceOptions> configureOption)
     {
         services.TryAddSingleton<IMarkdownConverterService, MarkdownConverterService>();
+        services.TryAddSingleton<IPollyRetryPolicy, PollyRetryPolicy>();
 
         services.Configure(configureOption);
 
